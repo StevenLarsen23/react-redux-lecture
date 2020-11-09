@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
-const Welcome = () => {
-    return <div className="centered-container">
-        <h1>This is the Welcome page</h1>
+const Welcome = (props) => {
+    console.log("props", props)
+  return (
+    <div className="centered-container">
+      <h1>Welcome to Jurassic park, {props.user.username}</h1>
     </div>
-}
+  );
+};
 
-export default Welcome;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(Welcome);
